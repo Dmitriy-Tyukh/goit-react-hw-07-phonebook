@@ -18,23 +18,25 @@ const ContactsList = () => {
   };
 
   return (
-     <List>
-        {isLoading && <p>Loading contacts...</p>}
-        {error && <p>{error}</p>}
-              
-        {filterContacts.map(({ id, name, number }) => (
-          <Link key={id}>
+    <List>
+      {isLoading && <p>Loading contacts...</p>}
+      {error && <p>{error}</p>}
+
+      {filterContacts.map(({ id, name, number }) => (
+        <Link key={id}>
+          <div className="wraper">
             <div className="contact">
               <h2 className="contactName">{name}</h2>
               <p>{number}</p>
-              <ButtonDelete type="button" onClick={() => handleDelete(id)}>
-                <MdClose size={16} />
-                <TextStyled> Delete </TextStyled>
-              </ButtonDelete>
             </div>
-          </Link>
-        ))}
-      </List>
+            <ButtonDelete type="button" onClick={() => handleDelete(id)}>
+              <MdClose size={16} />
+              <TextStyled> Delete </TextStyled>
+            </ButtonDelete>
+          </div>
+        </Link>
+      ))}
+    </List>
   );
 };
 

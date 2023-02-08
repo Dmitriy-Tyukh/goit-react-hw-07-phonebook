@@ -12,6 +12,8 @@ export const ButtonDelete = styled.button`
   display: flex;
   align-items: center;
   width:80px;
+  height:30px;
+  margin-top: 16px;
   padding: 10px 10px;
   background: #f8a035;
   color: #fff;
