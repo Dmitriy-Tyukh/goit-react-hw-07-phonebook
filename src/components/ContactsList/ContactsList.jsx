@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getContacts, getValue } from 'redux/selectors';
 import { deleteContacts } from 'redux/operations';
 import { MdClose } from 'react-icons/md';
+import { toast } from 'react-hot-toast';
 
 const ContactsList = () => {
   const { items, isLoading, error } = useSelector(getContacts);
@@ -14,7 +15,8 @@ const ContactsList = () => {
   );
 
   const handleDelete = Id => {
-    dispatch(deleteContacts(Id));
+      dispatch(deleteContacts(Id));
+      toast.success('Ви видалили контакт!');
   };
 
   return (

@@ -2,6 +2,7 @@ import {FormStyled, FieldStyled, ErrorMessagetyled, Label, ButtonSubmit} from '.
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from 'redux/selectors';
 import { addContacts } from 'redux/operations';
+import {toast} from 'react-hot-toast'
 import { Formik } from 'formik';
 import { nanoid } from 'nanoid';
 import * as yup from 'yup';
@@ -27,13 +28,14 @@ const ContactForm = () => {
       name: name,
       number: number,
     };
-    if (items.some(({ name }) => name === nameContact)) {
-        alert(`${nameContact} is already in contacts.`);
+      if (items.some(({ name }) => name === nameContact)) {
+        toast.error(`${nameContact} is already in contacts.`);
         return;
     }
       
     dispatch(addContacts(newContact));
     resetForm();
+    toast.success('Ви додали новий контакт!');
   };
   return (
     <Formik

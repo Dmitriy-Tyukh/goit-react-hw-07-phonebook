@@ -5,6 +5,7 @@ import { fetchContacts } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
 import Filter from 'components/Filter';
 import { useEffect } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -18,10 +19,11 @@ const App = () => {
     <div>
       <h1>Phonebook </h1>
       <ContactForm />
-            {isLoading && !error && <b>Request in progress...</b>}
+      {isLoading && !error && <b>Request in progress...</b>}
       <h2>Contacts</h2>
       <Filter />
       <ContactsList />
+      <Toaster />
     </div>
   );
 };
