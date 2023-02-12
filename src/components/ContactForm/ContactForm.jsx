@@ -27,13 +27,13 @@ const ContactForm = () => {
       name: name,
       number: number,
     };
+    if (items.some(({ name }) => name === nameContact)) {
+        alert(`${nameContact} is already in contacts.`);
+        return;
+    }
+      
     dispatch(addContacts(newContact));
     resetForm();
-
-    if (items.some(({ name }) => name === nameContact)) {
-      alert(`${nameContact} is already in contacts.`);
-      return;
-    }
   };
   return (
     <Formik
